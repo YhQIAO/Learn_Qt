@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
      * 信号可以连接信号
      * 信号可以连接多个槽函数
      * 多个信号可以连接多个槽函数
-     * 信号和槽参数类型必须一一对应
+     * 信号和槽参数类型必须对应
      * 信号参数个数可以多于槽函数的个数
      */
 
@@ -45,8 +45,20 @@ MainWindow::MainWindow(QWidget *parent)
     connect(teacher, SIGNAL(hungry(QString)), student, SLOT(treat()));
     ClassIsOver();
 
+    // C++ lambda 表达式
+    [=]() {
+        btn->setText("click me");
+    }();
 
+    QPushButton* btn2 = new QPushButton;
+    btn2->setText("close window");
+    btn2->setParent(this);
+    btn2->resize(200,100);
+    btn2->move(300,0);
 
+    connect(btn2, &QPushButton::clicked, [=]() {
+        this->close();
+    });
 }
 
 void MainWindow::ClassIsOver(){
