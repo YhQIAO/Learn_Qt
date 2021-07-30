@@ -18,3 +18,4 @@
 - ui工具使用
 - qt resource 添加icon
 - 对话框
+- 常用控件
