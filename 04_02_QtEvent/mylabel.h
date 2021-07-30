@@ -16,6 +16,10 @@ public:
     void leaveEvent(QEvent *event) override;
     void mousePressEvent(QMouseEvent *ev) override;
 
+    // 通过event事件分发器拦截鼠标按下事件
+    bool event(QEvent *e);
+
+
 signals:
 
 };
